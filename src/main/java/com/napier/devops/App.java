@@ -1,28 +1,42 @@
-package com.napier.devops;
+public Employee getEmployee(int ID)
+{
+    try
+    {
+        Statement stmt = con.createStatement();
+        String strSelect =
+                "SELECT e.emp_no, e.first_name, e.last_name, "
+                        + "t.title, s.salary, d.dept_name, "
+                        + "CONCAT(m.first_name, ' ', m.last_name) AS manager "
+                        + "FROM employees e "
+                        + "JOIN titles t ON e.emp_no = t.emp_no AND t.to_date = '9999-01-01' "
+                        + "JOIN salaries s ON e.emp_no = s.emp_no AND s.to_date = '9999-01-01' "
+                        + "JOIN dept_emp de ON e.emp_no = de.emp_no AND de.to_date = '9999-01-01' "
+                        + "JOIN departments d ON de.dept_no = d.dept_no "
+                        + "JOIN dept_manager dm ON de.dept_no = dm.dept_no AND dm.to_date = '9999-01-01' "
+                        + "JOIN employees m ON dm.emp_no = m.emp_no "
+                        + "WHERE e.emp_no = " + ID;
 
-import com.mongodb.MongoClient;
-import com.mongodb.client.MongoDatabase;
-import com.mongodb.client.MongoCollection;
-import org.bson.Document;
+        ResultSet rset = stmt.executeQuery(strSelect);
 
-public class App {
-    public static void main(String[] args) {
-        // Connect to MongoDB
-        MongoClient mongoClient = new MongoClient("mongo-dbserver");
-        // Get a database - will create when we use it
-        MongoDatabase database = mongoClient.getDatabase("mydb");
-        // Get a collection from the database
-        MongoCollection<Document> collection = database.getCollection("test");
-        // Create a document to store
-        Document doc = new Document("name", "Nekoro Spencer")
-                .append("class", "DevOps")
-                .append("year", "2024")
-                .append("result", new Document("CW", 95).append("EX", 85));
-        // Add document to collection
-        collection.insertOne(doc);
-
-        // Check document in collection
-        Document myDoc = collection.find().first();
-        System.out.println(myDoc.toJson());
+        if (rset.next())
+        {
+            Employee emp = new Employee();
+            emp.emp_no = rset.getInt("emp_no");
+            emp.first_name = rset.getString("first_name");
+            emp.last_name = rset.getString("last_name");
+            emp.title = rset.getString("title");
+            emp.salary = rset.getInt("salary");
+            emp.dept_name = rset.getString("dept_name");
+            emp.manager = rset.getString("manager");
+            return emp;
+        }
+        else
+            return null;
+    }
+    catch (Exception e)
+    {
+        System.out.println(e.getMessage());
+        System.out.println("Failed to get employee details");
+        return null;
     }
 }
