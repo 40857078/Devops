@@ -1,33 +1,54 @@
-<mxfile host="app.diagrams.net">
-  <diagram name="Page-1" id="Z1BZxw1-n08JkCADzsv-">
-    <mxGraphModel dx="1128" dy="720" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+<mxfile host="app.diagrams.net" modified="2026-10-11T00:00:00.000Z" agent="Codex" version="24.7.17" type="device">
+  <diagram id="hr-use-cases" name="HR System Use Cases">
+    <mxGraphModel dx="1100" dy="850" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="pRuYJjypLsqcaORtLEnN-1" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Use Case 6: View Employee Record" vertex="1">
-          <mxGeometry height="70" width="140" x="250" y="320" as="geometry" />
+        <mxCell id="system" value="HR System" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeWidth=2;verticalAlign=top;spacingTop=12;fontStyle=1;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="180" y="90" width="730" height="670" as="geometry" />
         </mxCell>
-        <mxCell id="pRuYJjypLsqcaORtLEnN-2" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Use Case 1: Salary Report for All Employees" vertex="1">
-          <mxGeometry height="70" width="140" x="420" y="230" as="geometry" />
+
+        <mxCell id="actor-hr" value="HR Advisor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="345" width="70" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="pRuYJjypLsqcaORtLEnN-3" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Use Case 2: Salary Report by Department" vertex="1">
-          <mxGeometry height="70" width="140" x="460" y="350" as="geometry" />
+        <mxCell id="actor-manager" value="Department Manager" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="970" y="345" width="90" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="pRuYJjypLsqcaORtLEnN-4" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Use Case 3: Manager's Department Salary Report" vertex="1">
-          <mxGeometry height="70" width="140" x="430" y="530" as="geometry" />
+
+        <mxCell id="uc1" value="Use Case 1&lt;br&gt;Salary report: all employees" style="ellipse;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="230" y="155" width="250" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="pRuYJjypLsqcaORtLEnN-5" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Use Case 4: Salary Report by Role" vertex="1">
-          <mxGeometry height="70" width="140" x="40" y="230" as="geometry" />
+        <mxCell id="uc2" value="Use Case 2&lt;br&gt;Salary report by department" style="ellipse;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="600" y="155" width="250" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="pRuYJjypLsqcaORtLEnN-6" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Use Case 5: Add Employee" vertex="1">
-          <mxGeometry height="70" width="140" x="40" y="360" as="geometry" />
+        <mxCell id="uc3" value="Use Case 3&lt;br&gt;Salary report for manager's own department" style="ellipse;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="230" y="305" width="250" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="pRuYJjypLsqcaORtLEnN-7" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Use Case 7: Update Employee Record" vertex="1">
-          <mxGeometry height="70" width="140" x="40" y="520" as="geometry" />
+        <mxCell id="uc4" value="Use Case 4&lt;br&gt;Salary report by role" style="ellipse;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="600" y="305" width="250" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="pRuYJjypLsqcaORtLEnN-8" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Use Case 8: Delete Employee Record" vertex="1">
-          <mxGeometry height="70" width="140" x="240" y="515" as="geometry" />
+        <mxCell id="uc5" value="Use Case 5&lt;br&gt;Add employee" style="ellipse;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="230" y="455" width="250" height="80" as="geometry" />
         </mxCell>
+        <mxCell id="uc6" value="Use Case 6&lt;br&gt;View employee record" style="ellipse;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="600" y="455" width="250" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="uc7" value="Use Case 7&lt;br&gt;Update employee record" style="ellipse;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="230" y="605" width="250" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="uc8" value="Use Case 8&lt;br&gt;Delete employee record" style="ellipse;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="600" y="605" width="250" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="link-hr-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;" edge="1" parent="1" source="actor-hr" target="uc1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="link-hr-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;" edge="1" parent="1" source="actor-hr" target="uc2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="link-manager-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;" edge="1" parent="1" source="actor-manager" target="uc3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="link-hr-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;" edge="1" parent="1" source="actor-hr" target="uc4"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="link-hr-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;" edge="1" parent="1" source="actor-hr" target="uc5"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="link-hr-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;" edge="1" parent="1" source="actor-hr" target="uc6"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="link-manager-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;" edge="1" parent="1" source="actor-manager" target="uc6"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="link-hr-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;" edge="1" parent="1" source="actor-hr" target="uc7"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="link-hr-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;" edge="1" parent="1" source="actor-hr" target="uc8"><mxGeometry relative="1" as="geometry" /></mxCell>
       </root>
     </mxGraphModel>
   </diagram>
