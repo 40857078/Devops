@@ -2,7 +2,7 @@ services:
   app:
     build: .
     environment:
-      DB_URL: jdbc:mysql://db:3306/employees?useSSL=false
+      DB_URL: "jdbc:mysql://db:3306/employees?useSSL=false&allowPublicKeyRetrieval=true"
       DB_USER: root
       DB_PASSWORD: example
     depends_on:

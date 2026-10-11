@@ -2,6 +2,14 @@
 
 SET09803 DevOps module — Edinburgh Napier University
 
+## Salary report
+
+Run the application with `salary-report` to list every employee's current salary. With Docker Compose:
+
+```sh
+docker compose run --rm app salary-report
+```
+
 
 ![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/w/40857078/Devops/main)
 [![GitHub Actions](https://github.com/40857078/Devops/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/40857078/Devops/actions/workflows/main.yml)

@@ -7,7 +7,27 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        runSalaryByRole(args);
+        if (args.length > 0 && "salary-report".equalsIgnoreCase(args[0])) {
+            runSalaryReport();
+        } else {
+            runSalaryByRole(args);
+        }
+    }
+
+    private static void runSalaryReport() {
+        try {
+            List<Employee> employees = new SalaryReport().getAllSalaries();
+            System.out.printf("%-10s %-15s %-20s %-12s%n",
+                    "Emp No", "First Name", "Last Name", "Salary");
+            for (Employee employee : employees) {
+                System.out.printf("%-10d %-15s %-20s %,12d%n",
+                        employee.emp_no, employee.first_name,
+                        employee.last_name, employee.salary);
+            }
+        } catch (SQLException exception) {
+            System.err.println("Unable to produce the salary report because the database query failed.");
+            System.err.println(exception.getMessage());
+        }
     }
 
     private static void runSalaryByRole(String[] args) {
