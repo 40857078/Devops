@@ -1,6 +1,13 @@
 services:
   app:
     build: .
+    environment:
+      DB_URL: jdbc:mysql://db:3306/employees?useSSL=false
+      DB_USER: root
+      DB_PASSWORD: example
+    depends_on:
+      db:
+        condition: service_healthy
   db:
     build: db/.
     restart: always
@@ -8,3 +15,9 @@ services:
       - "33060:3306"
     environment:
       MYSQL_ROOT_PASSWORD: example
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -uroot -p\"$${MYSQL_ROOT_PASSWORD}\" --silent"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 30s
