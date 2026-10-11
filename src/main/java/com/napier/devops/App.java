@@ -1,25 +1,49 @@
 package com.napier.devops;
 
-import com.mongodb.MongoClient;
-import com.mongodb.client.MongoDatabase;
-import com.mongodb.client.MongoCollection;
-import org.bson.Document;
+import java.sql.SQLException;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        MongoClient mongoClient = new MongoClient("localhost");
-        MongoDatabase database = mongoClient.getDatabase("mydb");
-        MongoCollection<Document> collection = database.getCollection("test");
+        runSalaryByRole(args);
+    }
 
-        Document doc = new Document("name", "Kevin Sim")
-                .append("class", "DevOps")
-                .append("year", "2024")
-                .append("result", new Document("CW", 95).append("EX", 85));
-        collection.insertOne(doc);
+    private static void runSalaryByRole(String[] args) {
+        String role;
+        int firstTitleArgument = args.length > 0 && "salary-by-role".equalsIgnoreCase(args[0]) ? 1 : 0;
+        if (args.length > firstTitleArgument) {
+            role = String.join(" ", Arrays.copyOfRange(args, firstTitleArgument, args.length)).trim();
+        } else {
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("Enter job title: ");
+            role = scanner.nextLine().trim();
+        }
 
-        Document myDoc = collection.find().first();
-        System.out.println(myDoc.toJson());
+        if (role.isEmpty()) {
+            System.err.println("A job title is required.");
+            return;
+        }
 
-        mongoClient.close();
+        try {
+            List<Employee> employees = new SalaryByRole().getEmployeesByRole(role);
+            if (employees.isEmpty()) {
+                System.out.println("No current employees found with title: " + role);
+                return;
+            }
+
+            System.out.printf("Salary report for role: %s%n", role);
+            System.out.printf("%-10s %-20s %-20s %-30s %12s%n",
+                    "Employee", "First name", "Last name", "Title", "Salary");
+            for (Employee employee : employees) {
+                System.out.printf("%-10d %-20s %-20s %-30s %,12d%n",
+                        employee.emp_no, employee.first_name, employee.last_name,
+                        employee.title, employee.salary);
+            }
+        } catch (SQLException exception) {
+            System.err.println("Unable to produce the salary report because the database query failed.");
+            System.err.println(exception.getMessage());
+        }
     }
 }
